@@ -1,0 +1,13 @@
+# Vercel deployment files
+.vercel
+
+# Build outputs
+dist/
+build/
+
+# Local development
+.env.local
+.env.development
+
+# Dependencies
+node_modules/

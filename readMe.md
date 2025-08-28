@@ -134,6 +134,22 @@ The game is built with modern web technologies and follows best practices:
 - Fallback systems for reliability
 - Progressive enhancement
 
+## 🚀 Deployment
+
+### Vercel Deployment
+For production deployment on Vercel with proper database support, see the [Vercel Deployment Guide](./VERCEL_DEPLOY.md).
+
+**Quick Deploy:**
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/realsususamogus/music-trivia)
+
+**Database Requirements:**
+- **Development**: No database required (uses in-memory storage)
+- **Production**: Requires external database for persistent high scores and multiplayer state
+- **Recommended**: Vercel KV (Redis) or MongoDB Atlas
+
+### Local Development
+The current implementation works great for local development using in-memory storage. For production, you'll need to configure a database as outlined in the Vercel deployment guide.
+
 ## Contributing
 
 1. Fork the repository

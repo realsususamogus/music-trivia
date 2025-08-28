@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "server/app.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/socket.io/(.*)",
+      "dest": "/server/app.js"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/server/app.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/server/app.js"
+    }
+  ],
+  "functions": {
+    "server/app.js": {
+      "includeFiles": "public/**"
+    }
+  },
+  "env": {
+    "NODE_ENV": "production"
+  }
+}
