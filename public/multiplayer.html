@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplayer - Music Trivia</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎵 Multiplayer Game 🎵</h1>
+            <div class="game-info">
+                <div class="info-item">
+                    <span class="label">Room:</span>
+                    <span id="roomId">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Players:</span>
+                    <span id="playerCount">0</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Status:</span>
+                    <span id="gameStatus">Waiting</span>
+                </div>
+            </div>
+        </header>
+        
+        <main class="multiplayer-screen">
+            <div id="joinRoom" class="screen active">
+                <div class="join-form">
+                    <h3>Join a Game Room</h3>
+                    <div class="form-group">
+                        <label for="playerName">Your Name:</label>
+                        <input type="text" id="playerName" placeholder="Enter your name" maxlength="20" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="roomCode">Room Code:</label>
+                        <input type="text" id="roomCode" placeholder="Enter room code or leave empty to create new" maxlength="10">
+                    </div>
+                    <button onclick="joinRoom()" class="btn btn-primary">
+                        Join Room
+                    </button>
+                    <button onclick="createRandomRoom()" class="btn btn-secondary">
+                        Create Random Room
+                    </button>
+                </div>
+            </div>
+            
+            <div id="waitingRoom" class="screen">
+                <div class="room-info">
+                    <h3>Room: <span id="currentRoomId"></span></h3>
+                    <p>Share this room code with friends to play together!</p>
+                    
+                    <div class="players-list">
+                        <h4>Players:</h4>
+                        <div id="playersList"></div>
+                    </div>
+                    
+                    <div class="ready-section">
+                        <button id="readyButton" onclick="toggleReady()" class="btn btn-warning">
+                            Ready Up!
+                        </button>
+                        <p id="waitingMessage">Waiting for players to be ready...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="multiplayerGame" class="screen">
+                <div class="question-container">
+                    <div class="progress-bar">
+                        <div id="progressFill" class="progress-fill"></div>
+                    </div>
+                    <div id="questionText" class="question-text"></div>
+                    <div id="optionsContainer" class="options-container"></div>
+                </div>
+                
+                <div class="timer-container">
+                    <div id="timerBar" class="timer-bar">
+                        <div id="timerFill" class="timer-fill"></div>
+                    </div>
+                </div>
+                
+                <div class="scores-sidebar">
+                    <h4>Live Scores:</h4>
+                    <div id="liveScores"></div>
+                </div>
+            </div>
+            
+            <div id="gameResults" class="screen">
+                <div class="results-container">
+                    <h2>🏆 Game Results 🏆</h2>
+                    <div id="finalRankings"></div>
+                    
+                    <div class="game-actions">
+                        <button onclick="backToLobby()" class="btn btn-primary">
+                            Back to Lobby
+                        </button>
+                        <button onclick="location.href='/'" class="btn btn-secondary">
+                            Main Menu
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/multiplayer.js"></script>
+</body>
+</html>

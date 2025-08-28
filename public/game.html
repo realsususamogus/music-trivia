@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Player - Music Trivia</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎵 Single Player Game 🎵</h1>
+            <div class="game-info">
+                <div class="info-item">
+                    <span class="label">Score:</span>
+                    <span id="score">0</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Question:</span>
+                    <span id="questionNumber">1</span>/<span id="totalQuestions">5</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Time:</span>
+                    <span id="timer">15</span>s
+                </div>
+            </div>
+        </header>
+        
+        <main class="game-screen">
+            <div id="gameStart" class="screen active">
+                <div class="mode-selection">
+                    <h3>Choose Game Mode:</h3>
+                    <button onclick="startGame('normal')" class="btn btn-primary">
+                        Normal Mode
+                    </button>
+                    <button onclick="startGame('timed')" class="btn btn-warning">
+                        Timed Mode (30s per question)
+                    </button>
+                </div>
+                <div class="player-name">
+                    <label for="playerName">Enter your name:</label>
+                    <input type="text" id="playerName" placeholder="Your Name" maxlength="20">
+                </div>
+            </div>
+            
+            <div id="gamePlay" class="screen">
+                <div class="question-container">
+                    <div class="progress-bar">
+                        <div id="progressFill" class="progress-fill"></div>
+                    </div>
+                    <div id="questionText" class="question-text"></div>
+                    <div id="optionsContainer" class="options-container"></div>
+                </div>
+                
+                <div class="timer-container">
+                    <div id="timerBar" class="timer-bar">
+                        <div id="timerFill" class="timer-fill"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="gameEnd" class="screen">
+                <div class="final-score">
+                    <h2>Game Complete!</h2>
+                    <div class="score-display">
+                        <span>Final Score: </span>
+                        <span id="finalScore">0</span>
+                    </div>
+                    <div id="highScoreMessage" class="high-score-message"></div>
+                    
+                    <div class="game-actions">
+                        <button onclick="restartGame()" class="btn btn-primary">
+                            Play Again
+                        </button>
+                        <button onclick="location.href='/'" class="btn btn-secondary">
+                            Back to Menu
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="js/game.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Trivia Game</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎵 Music Trivia Game 🎵</h1>
+            <p>Test your music knowledge!</p>
+        </header>
+        
+        <main class="menu">
+            <div class="game-modes">
+                <div class="mode-card">
+                    <h3>Single Player</h3>
+                    <p>Play solo and beat your high score!</p>
+                    <button onclick="location.href='/game'" class="btn btn-primary">
+                        Start Single Player
+                    </button>
+                </div>
+                
+                <div class="mode-card">
+                    <h3>Multiplayer</h3>
+                    <p>Challenge friends in real-time!</p>
+                    <button onclick="location.href='/multiplayer'" class="btn btn-secondary">
+                        Join Multiplayer
+                    </button>
+                </div>
+            </div>
+            
+            <div class="high-scores">
+                <h3>🏆 High Scores</h3>
+                <div id="highScoresList">
+                    <p>Loading scores...</p>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Made with ❤️ for music lovers</p>
+        </footer>
+    </div>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
